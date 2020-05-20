@@ -1,8 +1,8 @@
-# MRA AWS CDK
+# Generic AWS CDK
 
 This repository contains custom build/constructs used along other projects.
 
-All MRA features are built using AWS CDK for constructing the CloudFormation 
+All features are built using AWS CDK for constructing the CloudFormation 
 template, and this repository serves as a common resource for building resources
 with certain configurations which aligns with the standars and practices from 
 Diemen team.

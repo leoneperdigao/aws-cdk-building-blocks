@@ -337,7 +337,7 @@ export class ResourceLambda {
       functionName: `${Fn.sub('lambda-${Country}-${Account}-${Application}-${Project}-splunk-logger-${Branch}-${Environment}')}`,
       description: 'Function to send cloudwatch logs to splunk',
       handler: 'splunkLogger.handler',
-      code: './node_modules/codecommit-go-prd-mra-commons/lib/splunkLogger.js',
+      code: './node_modules/commons-project/lib/splunkLogger.js',
       environmentVariables: {
         SPLUNK_INDEX: `${Fn.conditionIf(
           'isPrdDeployment',
