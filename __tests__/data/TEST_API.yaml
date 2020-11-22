@@ -1,0 +1,32 @@
+openapi: "3.0.0"
+info:
+  version: "2.1.2"
+  title: Test
+  description: |-
+    # Overview
+    This is a test
+  x-apiType: open
+servers:
+  - url: https://test.me
+
+schemes:
+  - https
+
+tags:
+  - name: Such a beautiful swagger file  
+    description: Such a nice description for testing
+paths:
+  /path1:
+    post:
+      description: description1
+      operationId: operationId1
+      responses:
+        200:
+          description: OK
+  /path2:
+    post:
+      description: description2
+      operationId: operationId2
+      responses:
+        200:
+          description: OK

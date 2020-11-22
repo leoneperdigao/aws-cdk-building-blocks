@@ -1,0 +1,70 @@
+{
+  "plugins": ["@typescript-eslint"],
+  "extends": ["airbnb-typescript/base"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.eslint.json"
+  },
+  "ignorePatterns": ["**/*/*js", "**/*/*.d.ts"],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  }, 
+  "globals": {
+    "jest": true,
+    "afterAll": true,
+    "afterEach": true,
+    "beforeAll": true,
+    "beforeEach": true,
+    "before": true,
+    "describe": true,
+    "expect": true,
+    "it": true
+  },
+  "rules": {
+    "max-len": [ "error", { "code":  120, "ignoreComments": true, "tabWidth": 2 } ],
+    "no-use-before-define": ["error", { "functions": false, "classes": false, "variables": true }],
+    "no-process-env": "off",
+    "no-await-in-loop": "off",
+    "prefer-destructuring": "off",
+    "import/prefer-default-export": "off",
+    "import/no-cycle": "off",
+    "comma-dangle": [ "error", "only-multiline"],
+    "eol-last": ["error", "always"],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "no-trailing-spaces": "error",
+    "semi": ["error", "always"],
+    "no-unreachable": "error",
+    "no-unexpected-multiline": "error",
+    "indent": ["error", 2],
+    "space-infix-ops": ["error", { "int32Hint": false }],
+    "object-curly-spacing": ["error", "always"],
+    "key-spacing": "error",
+    "space-in-parens": "error",
+    "no-multi-spaces": "error",
+    "comma-spacing": "error",
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "@typescript-eslint/lines-between-class-members": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.ts",
+          "__tests__/**/*"
+        ]
+      }
+    ],
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "@typescript-eslint/indent": "off",
+    "no-template-curly-in-string": "off",
+    "no-new": "off"
+  }
+}

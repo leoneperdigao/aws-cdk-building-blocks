@@ -1,57 +1,54 @@
-import { expect, haveResource } from '@aws-cdk/assert';
+import { expect as awsExpect, haveResource } from '@aws-cdk/assert';
 import { Stack } from '@aws-cdk/core';
 import { CfnQueue } from '@aws-cdk/aws-sqs';
 import { CfnFunction } from '@aws-cdk/aws-sam';
-
-import { ResourceTags, ResourceTagsProps } from '../cdk-resources/resource-tags';
+import { ResourceTags } from '../src';
+import { ResourceTagProps } from '../src/types';
 
 describe('Resource Tags', () => {
-
-  test('should be able to generate tags in the form of Tag[]', () => {
+  it('should be able to generate tags in the form of Tag[]', () => {
     const stack = new Stack();
-    const props: ResourceTagsProps = {
+    const props: ResourceTagProps = {
       name: 'resource name',
       description: 'resource description',
       technology: 'sqs',
     };
     new CfnQueue(stack, 'dummyQueue', {
-      tags: new ResourceTags(props).getTagsAsCdkTags()
+      tags: new ResourceTags(props).getTagsAsCdkTags(),
     });
-    expect(stack).to(haveResource('AWS::SQS::Queue', {
-      Tags: [{
-        Key: 'OpCo',
-        Value: 'df'
-      }, {
-        Key: 'Owner',
-        Value: 'df-operations@company.com'
-      }, {
-        Key: 'Dtap',
-        Value: { 'Fn::Sub': '${Account}' }
-      }, {
-        Key: 'Creator',
-        Value: 'df-operations@company.com'
-      }, {
-        Key: 'Technology',
-        Value: 'sqs'
-      }, {
-        Key: 'Application',
-        Value: { 'Fn::Sub': '${Application}' }
-      }, {
-        Key: 'Ec2ctl',
-        Value: 'n/a'
-      }, {
-        Key: 'Description',
-        Value: 'resource description'
-      }, {
-        Key: 'Name',
-        Value: 'resource name'
-      }]
+    awsExpect(stack).to(haveResource('AWS::SQS::Queue', {
+      Tags: [
+        {
+          Key: 'Application',
+          Value: {
+            'Fn::Sub': '${Application}',
+          },
+        },
+        {
+          Key: 'Description',
+          Value: 'resource description',
+        },
+        {
+          Key: 'Environment',
+          Value: {
+            'Fn::Sub': '${Environment}',
+          },
+        },
+        {
+          Key: 'Name',
+          Value: 'resource name',
+        },
+        {
+          Key: 'Technology',
+          Value: 'sqs',
+        },
+      ],
     }));
   });
 
-  test('should be able to generate tags in the form of { [key: string]: string }', () => {
+  it('should be able to generate tags in the form of { [key: string]: string }', () => {
     const stack = new Stack();
-    const props: ResourceTagsProps = {
+    const props: ResourceTagProps = {
       name: 'resource name',
       description: 'resource description',
       technology: 'sqs',
@@ -60,24 +57,20 @@ describe('Resource Tags', () => {
       codeUri: 'src/index.js',
       handler: 'index.handler',
       runtime: 'nodejs',
-      tags: new ResourceTags(props).getTagsAsMap()
+      tags: new ResourceTags(props).getTagsAsMap(),
     });
-    expect(stack).to(haveResource('AWS::Serverless::Function', {
+    awsExpect(stack).to(haveResource('AWS::Serverless::Function', {
       Tags: {
-        OpCo: 'df',
-        Owner: 'df-operations@company.com',
-        Dtap: {
-          'Fn::Sub': '${Account}'
-        },
-        Creator: 'df-operations@company.com',
-        Technology: 'sqs',
         Application: {
-          'Fn::Sub': '${Application}'
+          'Fn::Sub': '${Application}',
         },
-        Ec2ctl: 'n/a',
         Description: 'resource description',
-        Name: 'resource name'
-      }
+        Environment: {
+          'Fn::Sub': '${Environment}',
+        },
+        Name: 'resource name',
+        Technology: 'sqs',
+      },
     }));
   });
 });

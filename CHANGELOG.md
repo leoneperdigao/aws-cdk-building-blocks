@@ -1,78 +1,104 @@
-# Change Log
+# Changelog
 
-## [2.3]
+All notable changes to this project will be documented in this file.
 
-### Bug Fixes
+## [1.1.4] - 12-10-2020
+
+### Fixed
+- Specify route tables for CBSP VPC Subnets
+
+## [1.1.3] - 12-10-2020
+
+### Changed
+- Bump CDK version
+- Bump other modules
+
+## [1.1.2] - 05-10-2020
+
+### Changed
+- Make lambda invokePermission property optional.
+
+## [1.1.1] - 05-10-2020
+
+### Changed
+- Bump CDK version.
+
+## [1.1.0] - 01-10-2020
+
+### Changed
+- Refactor naming conventions to classes, removing resource- prefix.
+
+## [1.0.9] - 04-09-2020
+
+### Fixed
+- Fix typo on KMS Key type.
+
+## [1.0.8] - 29-08-2020
+
+### Changed
+- Rename certificateSSMPath property to certificateArnSsmPath
+- Make basePath optional in ResourceApi
+
+### Fixed
+- Fix .gitignore
+
+## [1.0.7] - 29-08-2020
+
+### Fixed
+- Added DependsOn to log group subscription
+- Availability tag setting value
+
+## [1.0.6] - 29-08-2020
+
+### Added
+- Added invokePermission to LambdaDefinition
+- Added optionals Availability, Billing code, Confidentiality and Integrity Tags
+
+### Changed
+- Changed deprecated ConstructNode.applyAspect to Aspects.of(construct).add(aspect)
+
+## [1.0.5] - 29-08-2020
+
+### Changed
+- Remove all aws-sam references in favor of aws-lambda
+- Improved support to custom vpc configuration
+- Bump aws-cdk version to 1.61.1
+
+## [1.0.4] - 27-08-2020
+
+### Added
+- Added optional executionRolePolicyStatements to LambdaDefinition
+
+## [1.0.3] - 27-08-2020
+
+### Fixed
+- Added missing exported type to index file
+
+## [1.0.2] - 27-08-2020
+
+### Fixed
+- Fix types path at package.json
+
+## [1.0.1] - 27-08-2020
+
+### Changed
+- Change types path at package.json
+
+## [0.0.1] - 26-08-2020
+
+### Added
+* SpecRestApiGateway
+* LambdaFactory
+* LambdaLayerFactory
+* StackParameters
+* ResourceTags
+
+### Changed
 *None*
 
-### Features
-* ResourceLambda: 
-    * Removed commonLayers
-
-### Breaking Changes
+### Removed
 *None*
 
-## [2.2]
-
-### Bug Fixes
+### Fixed
 *None*
 
-### Features
-* ResourceLambda: 
-    * Runtime upgraded to nodejs12.x
-
-### Breaking Changes
-* Projects stack resources unit tests might break
-
-## [2.1]
-
-### Bug Fixes
-*None*
-
-### Features
-* ResourceLambda: 
-    * Added GenericLambdaProperties
-    * Removed autoPublish, create version and alias explicitely
-
-### Breaking Changes
-* All AWS-CDK dependencies were incremented to version 1.17.1
-* ResourceLambda: 
-    * GenericLambdaProperties needs to provided on constructor
-    * API swagger definitions need to reference lambda alias by alias resource name
-
-## [2.0]
-
-### Bug Fixes
-*None*
-
-### Features
-*None*
-
-### Breaking Changes
-* All AWS-CDK dependencies were incremented to version 1.12.0
-* ResourceTopic: Fn.sub removed from topicName, will need to be provided if needed
-
-## [1.2]
-
-### Bug Fixes
-* Add tags to API and KMS resources
-* Fix API deployment to include unique name
-
-### Features
-* Add Cloudwatch Dashboard for API Gateway
-* Add option to configure VPC to Lambda function
-* Add filter policy to topic subscription
-
-### Breaking Changes
-*None*
-
-## [1.1 and lower]
-
-### Bug Fixes
-* Add display name to topic resource
-
-### Features
-* Add DLQ option to lambdas
-
-### Breaking Changes
-* All AWS-CDK dependencies were incremented to version 1.5.0
