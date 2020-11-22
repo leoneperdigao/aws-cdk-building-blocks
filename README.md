@@ -1,6 +1,6 @@
-# CDK-LIBRARY
+# AWS CDK Building Blocks
 
-This repository contains custom CDK build/constructs used along other projects.
+This repository contains useful building blocks focused on Serverless withing AWS
 
 ## Badges
 
@@ -20,6 +20,13 @@ The usage of the AWS-CDK is limited to the creation of the template only and not
 the entire deploy process to AWS. The reason for this is to align with the
 existing pipeline process which takes the CloudFormation YAML file as part of the
 deployment process.
+
+### Useful building blocks
+
+* Lambda factory with kinesis subscription
+* API Gateway based on Swagger Specs, with dashboard
+* Standard tags (can be extended)
+* Standard Stack parameters (can be extended)
 
 ## Getting started
 The resources from this repository are consumed by other repositories by 
