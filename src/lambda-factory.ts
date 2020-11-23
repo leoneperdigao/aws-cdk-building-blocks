@@ -202,7 +202,7 @@ export class LambdaFactory {
    * @param {LambdaDefinition=} props
    */
   private getFunctionVpcSubnets(props: LambdaDefinition): SelectedSubnets | undefined {
-    return this.genericLambdaProperties.vpcSubnets || props.vpcSubnets
+    return this.genericLambdaProperties.vpcSubnets || props.vpcSubnets;
   }
 
   /**

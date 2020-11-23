@@ -65,6 +65,8 @@
     ],
     "@typescript-eslint/indent": "off",
     "no-template-curly-in-string": "off",
-    "no-new": "off"
+    "no-new": "off",
+    "no-restricted-syntax": "off",
+    "class-methods-use-this": "off"
   }
 }
