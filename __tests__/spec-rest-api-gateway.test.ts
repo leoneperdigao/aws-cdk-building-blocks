@@ -16,7 +16,7 @@ describe('Resource API', () => {
     fs.mkdirSync(path.join(__dirname, '../api-gateway-swagger/'));
   };
 
-  const copiSwaggerToApiDirectory = () => {
+  const copySwaggerToApiDirectory = () => {
     fs.copyFileSync(
       path.join(__dirname, './data/TEST_API.yaml'),
       path.join(__dirname, '../api-gateway-swagger/TEST_API.yaml'),
@@ -27,7 +27,7 @@ describe('Resource API', () => {
     jest.spyOn(Date, 'now').mockImplementation(() => mockedDate);
     removeApiDirectory();
     createApiDirectory();
-    copiSwaggerToApiDirectory();
+    copySwaggerToApiDirectory();
   });
 
   afterAll(() => removeApiDirectory());

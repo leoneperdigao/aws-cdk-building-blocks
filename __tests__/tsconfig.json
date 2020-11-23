@@ -1,3 +1,6 @@
 {
-  "compileOnSave": false
+  "compilerOptions": {
+    "esModuleInterop": true
+  },
+  "compileOnSave": false,
 }
