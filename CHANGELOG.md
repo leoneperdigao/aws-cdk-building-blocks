@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.0.1] - 26-08-2020
+## [0.0.1] - 22-11-2020
 
 ### Added
 * SpecRestApiGateway
