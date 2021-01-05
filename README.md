@@ -28,6 +28,7 @@ deployment process.
 * Standard tags (can be extended)
 * Standard Stack parameters (can be extended)
 
+
 ## Getting started
 The resources from this repository are consumed by other repositories by 
 referencing a specific branch from this repository. Each branch is named as a 
